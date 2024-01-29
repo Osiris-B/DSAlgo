@@ -24,7 +24,7 @@ int main() {
   findSum(0, arr, n, 0, ans);
   sort(ans.begin(), ans.end());
 
-  cout<<"Subset sums: "<<endl;
+  cout << "Subset sums: " << endl;
   for (int i : ans) {
     cout << i << " ";
   }
