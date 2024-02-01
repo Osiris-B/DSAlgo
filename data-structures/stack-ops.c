@@ -2,7 +2,7 @@
 #define max 3
 
 int st[max], top = -1;
-void push(int[] , int);
+void push(int[], int);
 int pop(int[]);
 int peek(int[]);
 void display(int[]);
@@ -48,7 +48,7 @@ void display(int st[]) {
   }
 }
 
-int main(){
-    printf("Executed\n");
-    return 0;
+int main() {
+  printf("Executed\n");
+  return 0;
 }
