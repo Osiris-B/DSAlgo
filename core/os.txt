@@ -1,0 +1,303 @@
+Operating Systems
+
+
+Short Summary
+
+1. Introduction to OS
+
+- OS is a piece of software that manages all the resources of a computer system, both hardware and 
+  software, and provides an environment in which the user can execute programs in a convenient and
+  efficient manner
+
+- Tasks:
+    * manages computer hardware
+    * facilitates execution of application programs
+    * acts as an intermediary between the user and computer hardware
+    * designed to be convenient and efficient
+    
+    * acts as resource allocator and control program
+
+- Multiprogramming: increase CPU utilization by keeping multiple jobs in the memory so that the CPU 
+                    always has one to execute
+
+- Multitasking: is a logical extension of multiprogramming, CPU executes multiple tasks be switching
+                among them
+
+- Kernel: is that part of the OS which interacts directly with the hardware and performs the most 
+          crucial tasks
+
+- Shell: also known as a command interpreter, is that part of the OS that receives commands from the 
+         users and gets them executed
+
+- System call: a mechanism using which a user program can request a service from the kernel for which
+               it does not have permission to perform
+
+- Duties of OS:
+    * Process management:
+        + creating/ deleting user and system processes
+        + suspending/ resuming processes
+        + interprocess communication
+        + process synchronization
+        + deadlock handling
+
+    * Memory management:
+        + keeping track of memory being used by which job 
+        + allocating/ deallocating memory space
+
+    * Storage management:
+        + creating, deleting, manipulating files and directories
+        + free space management
+        + storage allocation
+        + disk scheduling
+
+    * Caching
+    * Input - output management
+
+- Services of OS:
+    * User:
+        + user interface
+        + program execution
+        + IO operation 
+        + file system manipulation
+        + communication 
+        + error detection
+
+    * System:
+        + resource allocation
+        + accounting
+        + protection/ security
+    
+- Booting: the process of starting the computer and loading the kernel
+           when turned on, POST (power-on self-tests) performed 
+           then bootstrap loader executed, which loads kernel
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+2. Process and Process Scheduling
+
+- Process: a program in execution
+           is a unit of work in a computer system
+
+- Process consists of:
+    * txt section containing the program code
+    * current activity represented by the values of the Prog. counter/ registers
+    * program stack
+    * data section containing global variables
+    * heap
+
+- Process state: defined by the current activity of the process
+
+- Process Control Block contains:
+    * process state
+    * values of program counter/ other registers
+    * CPU scheduling info
+    * Accounting info
+    * IO status info
+
+- Process Scheduling: selecting one process for execution out of all ready processes.
+                      
+- Scheduling queues: used to perform process scheduling.
+    * process initially put in job queue that contains all the processes in system,
+    * process residing in memory and are ready for exec kept in ready queue
+    * list of processes waiting for IO device kept in device queue
+
+- Schedulers:
+    * Long term / Job: 
+        + selects processes from those submitted by the user and laods them into memory 
+        + controls the degree of multiprogramming, represented by no. of processes in memory
+        + invoked less frequently 
+    
+    * Short term/ CPU:
+        + selects one of the processes in the memory and allocates CPU to it
+        + invoked frequently and should be very fast
+
+    * Medium term:
+        + removes processes from memory and from the competition for CPU, reducing degree of 
+          multiprogramming
+        + processes can be later reintroduced in the memory and their executions can be resumed
+            AKA swapping
+
+- Context switching:
+    * switching the CPU to another process requires saving state of current process and reloading
+      the state of another process
+    * states are saved into and reloaded from PCBs
+    * context switch time is pure overhead 
+    * switch time depends highly on hardware
+    * switching is faster on RISC processors with overlapped register windows
+
+- Process creation: 
+    * each process has a unique id
+    * a process may obtain resources either from its parent OR from OS directly
+    * parent process may continue executing with its children processes OR may wait for them to 
+      complete
+    * a process may be a duplicate of its parent process or may have a new program loaded into it
+
+- Process termination:
+    * parent process may terminate a child process: 
+        + if it has exceeded resource usage
+        + if its result is no more needed
+        + if the parent process is terminating and OS does not allow an orphan process
+
+- Interprocess comms:
+    * Reason:
+        + info sharing
+        + computational speedup 
+        + modularity
+        + convenience
+
+- Threads: 
+    * is the smallest sequence of instructions that can be managed independently by a scheduler
+    * is a component of a process
+    * multiple threads can exist within the same process, executing concurrently and share resources
+      such as memory
+
+- Diff b/w process and thread:
+    * processes are typically independent, threads exist as parts of process
+    * processes carry considerably more state info than threads, whereas multiple threads within a 
+      process share process state as well as memory/ other resources
+    * processes have separate addresses spaces, whereas threads share their address space
+    * contxt switching b/w threads in the same process is typically faster than b/w processes
+
+- Adv of multi threading:
+    * responsiveness
+    * faster execution
+    * better resource utilization
+    * easy communication
+    * parallelization
+
+- Non-preemptive scheduling: 
+    * process keeps the CPU until it terminates or switches to waiting state
+
+- Preemptive scheduling:
+    * process can be forced to leave the CPU and switch to the ready queue
+
+- Dispatcher:
+    * module of the OS that gives control of the CPU to the process selected by scheduler
+        + switch contxt
+        + switch to user mode
+        + jumping to proper location in user program
+
+- Scheduling Algorithms:
+    * FCFS:
+        + non-preemptive
+        + high avg waiting time
+        + convoy effect - several small processes may need to wait if large process given CPU
+
+    * SJF:
+        + process with smallest next CPU burst selected
+        + FCFS to break ties
+        + optimal but cannot be implemented
+
+    * Priority:
+        + CPU allocated to process with highest priority
+        + may cause starvation
+        + implement aging => gradually increase priority of process waiting for longer time
+
+    * Round Robin:  
+        + small time quantum defined
+        + ready Q treated as circular Q
+        + each process allocated CPU for 1 time quantum
+        + preemptive
+
+    * Multilevel:
+        + ready Q partitioned into several Qs
+        + process is permanently assigned to 1 Q
+        + each Q has its own scheduling algorithm
+    
+    * Multilevel feedback:
+        + allows processes to move b/w Qs
+        + inter-Q scheduling => preemptive priority scheduling
+
+- Multiple processor scheduling:
+    * asymmetric -> one processor performs scheduling for all
+    * symmetric -> each processor is self scheduling
+
+    * processor affinity -> attempt made to keep a process at a given processor
+    * load balancing -> attempt to keep all processors equally loaded
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+3. Process Synchronization
+
+- Race condition:
+    * situation where several processes access and manipulate the same data concurrently and the 
+      outcome of the execution depends on the particular order in which the accesses take place
+
+- Critical Section problem: 
+    * each process have critical section of code, in which process changes common variables and data
+    * problem is to ensure that when one process is executing its CS, that no other process can exec
+      its own CS
+    * CS is preceded by an entry section in which process seeks permission from other processes
+    * CS followed by exit section
+    * finally remainder section
+
+- CS problem properties:
+    * mutual exclusion
+    * progress
+    * bounded waiting
+
+- Peterson's solution:
+    * shared variables -> int turn, boolean flag
+
+- Semaphores:
+    * an integer variable that, apart from init, is accessed only through two atomic opns, wait() 
+      and signal()
+    * binary sem:
+        + also called mutex lock 
+        + used to implement solution of CS problem with multiple processes
+        + init to 1
+
+    * counting sem:
+        + used to control access to resource that has multiple instances
+        + init to n
+
+- Producer - Consumer problem:
+    * 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

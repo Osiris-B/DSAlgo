@@ -1,0 +1,293 @@
+Object Oriented Programming
+
+
+Q1. What is OOP? 
+
+- Object Oriented Programming 
+
+- Advantages: 
+    * faster and easier to execute   
+    * provides a clear structure for the programs   
+    * helps to keep code 'DRY'/ makes code easier to maintain, modify and debug  
+    * possible to create full reusable applications with less code/ shorter dev time   
+
+- class is a template for objects, object is an instance of a class.
+
+- individual objects inherit all the variables and functions from the class.
+
+
+Q2. Explain OOP with real world example.
+
+- abstraction involves revealing only relevant data and concealing extraneous details
+
+- abstraction can be achieved through classes or interfaces.
+
+Eg. 
+    when sending data via BT, the abstraction is evident as we do not delve into the details of how
+    the connection is established.
+
+- polymorphism -> activate a phone with a single button, also power off using the same button.
+
+- inheritance:
+    * single level  
+    * multi level   
+    * hierarchical   
+    * hybrid    
+    * multiple    
+
+
+Q3. Why OOPs? 
+
+- duplicate code is bad && code will always be changed
+
+- OOPs provides code reusability and ease of code changes.
+
+
+Q4. OOP Adv / Disadv
+
+- Advantages:
+    * improved software dev productivity
+        -> modular, extensible, reusable
+    * improved software maintainability 
+    * faster development
+    * lower cost of development
+    * higher quality software
+
+- Disadvantages:
+    * steep learning curve
+    * larger program size
+    * slower programs
+    * not suitable for all types of problems
+
+
+Q5. What is a Class/ Object/ Structure ?
+
+- Class: blueprint or a set of instructions to build a specific type of object.
+
+- Object: instance of a class, self-contained component which consists of methods and properties to
+          make a particular type of data useful.
+
+- Structure: a user defined data type in CPP, creates a data type that can be used to group items 
+             of possibly different types into a single type.
+             struct cannot hide its implementation details from the end user while a class can.
+
+
+Q6. Explain access modifiers
+
+- Private: access level is only within the class, cannot be accessed from outside the class.
+
+- Default: access level of default modifier is only within the package.
+
+- Protected: access level is within the package and outside the package through child class.
+
+- Public: access level is everywhere
+
+accessibility: private < default < protected < public
+
+
+Q7. Types of class member functions
+
+- Simple: basic member function, no special keyword
+
+- Static: something that holds its position, they work for the whole class rather than for particular objects
+          they cannot access ordinary data members and member functions
+          only static data members and member functions can be called inside them
+
+- Const: makes variables constant, member functions can never modify the object or its related data members
+
+- Inline: member functions defined inside the class definition
+
+- Friend: made to give private access to non-class functions
+
+
+Q8. What is a Constructor?
+
+- a special method thats invoked automatically at the time of object creation
+- used to initialize the data members of new objects generally 
+- do not return value
+- they can be overloaded
+- they cannot be declared virtual
+- they cannot be inherited
+- they cannot be referred by address
+- default constructor generated if not specified by user
+- Types:
+    * default : doesn't take any argument
+    * parameterized : possible to pass arguments
+    * overloaded
+    * copy : initializes object using another object of same class
+    * inline
+
+- when defining 1 or more non-default constructors, the compiler will not provide a default constructor
+
+
+Q9. Difference between deep and shallow copy 
+
+- Deep copy:
+    * stores copies of the object's value
+    * doesn't reflect changes made to the new/ copied object in the original object
+    * stores the copy of the original object and recursively copies the objects as well 
+    * comparatively slower
+
+- Shallow copy:
+    * stores the references of objects to the original memory address
+    * reflects the changes made to the new/ copied object in the original object
+    * stores the copy of the original object and points the references to the objects
+    * faster
+
+
+Q10. Virtual constructor in cpp
+
+- in cpp, constructor cannot be virtual, because when a constructor of a class is executed, there
+  is no virtual table in memory, ie. no virtual pointer defined yet.
+
+
+Q11. Use of multiple constructors ? 
+
+- you use multiple constructors for convenience or to allow completely different init methods or 
+  diff source types:
+
+
+Q12. Diff btw constructors and normal member functions 
+
+- constructor has same name as class itself
+- don't have return type
+- is automatically called when an object is created
+- if not specified, cpp compiler generates a default constructor
+
+
+Q13. What is a Destructor? 
+
+- is an instance member function thats invoked automatically whenever an object is going to be 
+  destroyed, ie. a destructor is the last function called before object destruction.
+
+- has the same name as their class name preceded by a ~ symbol
+- not possible to define >1 destructor
+- can not be overloaded, since its the only way to destroy a created object
+- automatically called when object goes out of scope
+- release memory space occupied by created objects
+- objects are destroyed in the reverse of object creation
+- no return type
+- address of destructor cannot be accessed
+- cannot be declared static or const
+- they can be virtual 
+
+
+Q14. Explain important keywords related to OOPs
+
+- static: implies class level scope, used for a constant variable or method for every class object
+
+- virtual: used to modify a method, property, indexer or event declaration and allow for it to be 
+           overridden in a derived class.
+
+- abstract: used to declare method or class as abstract
+            class declared abstract cannot be instantiated
+            if you inherit from an abstract class, implementations to all abstract methods have to 
+            be provided in it
+
+- final: stops value change, method overriding and inheritance
+         final variables' value cannot be changed
+         final methods can be inherited but not overridden
+
+- this: reference variable that refers to the current object
+        used to refer current class instance variable, to invoke current class method,
+        to invoke current class constructor
+
+- new:  used to create an instance of the class, ie. it instantiates a class by allocating memory 
+        for a new object and returning a reference to that memory.
+        allocates memory at runtime
+        all objects occupy memory in heap
+        invokes object constructor
+
+- const: -- xx --  
+
+- super: reference variable used to refer immediate parent class object
+         can be used to invoke immediate parent class method/ constructor
+
+
+Q15. What is Polymorphism?
+
+- concept by which we can perform a single action in different ways.
+- Types: 
+    * runtime -> is a process in which a call to an overridden method is resolved at runtime
+
+    * compile time -> is a process in which a call to an overloading method is resolved at compile
+                      time
+
+
+Q16. Functions which can't be overload in cpp
+
+- function decl. that only differ in return type 
+- function decl. with same name and param list can't be overload if any of them is static member
+  function decl.
+- param. decl. that differ only in a pointer v/s array 
+- param. decl. that differ only in the presence/ absence of const/ volatile
+
+
+Q17. Virtual functions
+
+- is a member functionin the base class that you redefine in a derived class
+- used to tell the compiler to perform dynamic linkage/ late binding on the function
+- CPP determines which function is to be invoked at runtime based on the type of object pointed
+  by the base class pointer.
+
+- Rules:    
+    * must be members of some class
+    * cannot be static members
+    * accessed through object pointers
+    * can be a friend of another class
+    * must be defined in the base class
+
+
+Q18. Inheritance 
+
+- is a mechanism in which one object acquires all the properties and behaviours of a parent object
+- known as parent-child relationship
+- used to declare characteristics of classes inheriting it, without giving its implementation
+- for extendibility
+- Types:
+    * single => 1 derived class inherits from 1 base class
+    * multiple => single derived class inherits from >=2 base classes
+    * hierarchical => multiple derived classes inherit from 1 base class
+    * multilevel => derived class inherits from class, which inherits from another class
+    * hybrid => combination of hierarchical and multilevel inheritance
+
+
+Q19. No multiple inheritance in Java
+
+- problem with multiple inheritance is that two classes may define different implementations of the
+  same feature, and the subclass can't choose which to pick.
+
+- interfaces specify only what the class is doing, not how it is doing it
+
+
+Q20. Java Diamond problem 
+
+- in case of multiple inheritance, compiler might face an ambiguous situation not knowing which 
+  method to call
+- hence Java allows multiple inheritance using interfaces rather than classes
+
+
+Q21. Encapsulation
+
+- a process of wrapping code and data into a single unit
+- Adv:
+    * can make the class RO or WO
+    * provides control over the data
+    * is a way to achieve data hiding
+    * is easy to test
+- encapsulation achieved in java using access modifiers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

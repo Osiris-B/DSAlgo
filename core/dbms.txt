@@ -1,0 +1,106 @@
+Database Management Systems
+
+
+Q1. Database
+
+- is an organized collection of data, such that it can be easily accessed and managed
+- main purpose is to operate a large amount of information by storing, retrieving, and
+  managing data
+- Eg. MySQL, Oracle, MongoDB, PostgreSQL, ScyllaDB, Cassandra
+
+
+Q2. DBMS
+
+- is software for storing and retrieving user's data while considering appropriate security measures
+- consists of a group of program that manipulate the DB
+
+- Characteristics: 
+    * provides security and removes redundancy 
+    * self describing nature
+    * insulation b/w programs and data abstraction
+    * support multiple views of the data
+    * sharing of data and multiuser transaction processing
+    * follows ACID properties (Atomicity, Consistency, Isolation, Durability)
+
+- Advantages:
+    * offers variety of techniques to store & retrieve data
+    * uniform administration procedures for data
+    * application prog. never exposed to details of data representation & storage
+    * offers data integrity and security
+    * reduced application development time
+    * schedules concurrent access to the data 
+
+- Disadvantages:
+    * cost of hardware/ software of DBMS is high
+    * training users is required, due to complexity 
+    * all data is integrated into a single DB that can be damaged
+    * DBMS can't perform sophisticated calculations
+
+
+Q3. Instance, Schema, Sub schema
+
+- Instance: it is the snapshot of the DB taken at a particular moment
+            at the given time, each schema has itw own set of instances
+
+- Schema: its the overall description/ design of the DB specified during the DB design
+          it should not be changed frequently
+
+- Sub schema: defined as the subset/ sub-level of schema that has the same properties as the schema
+              its an effective schema for the view
+
+
+Q4. File systems
+
+- file system is a collection of data, user has to write the procedures for managing the DB
+- data is distributed in many files, and it may be in different formats
+- provides the detail of the data representation and storage of data
+- isn't easy to protect a file under the file system 
+- file system doesn't have a crash system
+- file system can't efficiently store and retrieve data
+- concurrent access has many problems
+- cheaper to design, simple structure
+
+
+Q5. DB Languages
+
+- SQL: 
+    * Structured Query Level
+    * 5 types of commands:
+        + Data Definition Language
+        + Data Query Language 
+        + Data Manipulation Language
+        + Data Control Language
+        + Transaction Control Language
+
+- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
