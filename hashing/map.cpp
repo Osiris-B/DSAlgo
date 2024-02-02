@@ -6,21 +6,21 @@ int main() {
 
   map<int, int> mp;
 
-  cout<<"Original array: "<<endl;
+  cout << "Original array: " << endl;
   for (int i = 0; i < 7; i++) {
-      cout<<arr[i]<<" ";
+    cout << arr[i] << " ";
   }
-  cout<<endl;
+  cout << endl;
 
-  cout<<"Hash map: "<<endl;
-  for(int i=0; i<8 ; i++){
-      mp[arr[i]] += 1;
+  cout << "Hash map: " << endl;
+  for (int i = 0; i < 8; i++) {
+    mp[arr[i]] += 1;
   }
 
-  for(int i=0; i<8; i++){
-      cout<<mp[i]<<" ";
+  for (int i = 0; i < 8; i++) {
+    cout << mp[i] << " ";
   }
-  cout<<endl;
+  cout << endl;
 
   return 0;
 }
